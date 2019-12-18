@@ -1,1 +1,1 @@
-web: python selenium_test.py
+clock: python clock.py

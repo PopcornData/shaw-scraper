@@ -12,6 +12,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time as tm
 import traceback
 import datetime
+from datetime import datetime
 from bs4 import BeautifulSoup
 import random
 import json
@@ -88,7 +89,11 @@ class shaw_scraper():
                         tm.sleep(2)
                         page=BeautifulSoup(self.browser.page_source, "html.parser")
 
+                        date=datetime.now()
+                        dt=date.strftime('%d %b %Y')
                         movie_date=page.find_all('div',{'class':'owl-item'})[i].text.strip().split('\n')[1]
+                        if(dt!=movie_date):
+                            break
                         print(theatre,movie_date)
                         all_movies=page.find_all("div",{"class":"movies_item-movie row block-list-showtimes"})
 
@@ -98,7 +103,7 @@ class shaw_scraper():
                             print(movie_title)
 
                             #Hall, timing and session code
-                            movie_times=movie.find_all("div",{"class":"showtimes-block "})
+                            movie_times=movie.find_all("div",{"class":"showtimes-block"})
 
                             for time in movie_times:
                                 mycol.update_one( { 
@@ -128,11 +133,11 @@ class shaw_scraper():
         self.browser.quit()
         print('Finished scraping movie details')
 
-    def get_seat_data(self):
-        movie_data = mycol.find()
+    def get_seat_data(self, date):
+        movie_data = mycol.find({"date": date})
         try:
             for movie in movie_data:
-                print(movie,'\n')
+                print(movie['date'],movie['hall'], movie['movie'],movie['time'],'\n')
                 all_seats=[]
                 req_seat_data=requests.get('https://www.shaw.sg/api/SeatingStatuses?recordcode={}'.format(movie['session_code']),headers=headers)
                 val=(random.randint(0, 100))
@@ -145,9 +150,14 @@ class shaw_scraper():
                         seat_data['seat_status']=seat['element_status_code']
                         seat_data['seat_buy_time']=seat['element_updated_on']
                         seat_data['seat_sold_by']=seat['element_updated_by']
+                        seat_data['last_update_time']=str(datetime.now())
                         all_seats.append(seat_data)
                 all_seats=sorted(all_seats, key = lambda k: k['seat_buy_time'])        
-                mycol.update_one(movie,
+                mycol.update_one({ 
+            	                 'theatre' : movie['theatre'],
+                                 'hall': movie['hall'],
+                                 'session_code': movie['session_code']
+                                 },
                     {'$set':{'seats':all_seats}}, 
                     upsert = True 
                     )
@@ -158,5 +168,5 @@ class shaw_scraper():
             
             
 scr=shaw_scraper()
-movie_data=scr.get_seat_data()
+
 
