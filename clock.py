@@ -5,16 +5,13 @@ from datetime import datetime, timedelta
 
 
 sched = BlockingScheduler()
+sgp = timezone('Asia/Singapore')
 
-#Repeat job after specified interval
-@sched.scheduled_job('interval', seconds=10000)
-def print_data():
-    print("Have a good day!")
-
-@sched.scheduled_job('cron',hour=1,minute=1, timezone='Asia/Singapore')
+@sched.scheduled_job('cron',hour=1,minute=0, timezone='Asia/Singapore')
 def seat_data():
-    date=datetime.now()-timedelta(1)
+    date=datetime.now(sgp)-timedelta(1)
     scr.get_seat_data(date.strftime('%d %b %Y'))
+
 
 @sched.scheduled_job('cron',hour=8,minute=0, timezone='Asia/Singapore')
 def movie_data():
