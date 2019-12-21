@@ -13,7 +13,7 @@ def seat_data():
     scr.get_seat_data(date.strftime('%d %b %Y'))
 
 
-@sched.scheduled_job('cron',hour=8,minute=0, timezone='Asia/Singapore')
+@sched.scheduled_job('cron',hour=8,minute=1, timezone='Asia/Singapore')
 def movie_data():
     scr.get_movie_data()    
 
