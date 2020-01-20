@@ -23,16 +23,23 @@ import requests
 import pymongo
 import os
 
+# Code for using Mlab Mongodb
+#MONGODB_URI=os.environ.get("MONGODB_URI")
+# client = pymongo.MongoClient(MONGODB_URI,
+#                      connectTimeoutMS=30000,
+#                      socketTimeoutMS=None,
+#                      socketKeepAlive=True,
+#                      retryWrites=False)
+
+# db = client.get_default_database()
+# mycol = db["movie_data"]
+
+#Code for using Atlas Mongodb
 MONGODB_URI=os.environ.get("MONGODB_URI")
-
-client = pymongo.MongoClient(MONGODB_URI,
-                     connectTimeoutMS=30000,
-                     socketTimeoutMS=None,
-                     socketKeepAlive=True,
-                     retryWrites=False)
-
-db = client.get_default_database()
+client = pymongo.MongoClient(MONGODB_URI)
+db = client.get_database('shaw_data')
 mycol = db["movie_data"]
+
 
 class shaw_scraper():
     
