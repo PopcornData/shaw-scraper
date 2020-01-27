@@ -146,7 +146,7 @@ class shaw_scraper():
                     headers=rheaders.back_up_headers()
                 req_seat_data=requests.get('https://www.shaw.sg/api/SeatingStatuses?recordcode={}'.format(movie['session_code']),headers=headers)
                 val=(random.randint(0, 100))
-                tm.sleep(0.2 + (val/100 * (0.3)))
+                tm.sleep(1 + (val/100 * (0.3)))
                 req_seat_data=req_seat_data.json()
                 for seat in (req_seat_data['Items']):
                     if(seat['element_category_code']=='SEAT'):
