@@ -13,7 +13,7 @@ sgp = timezone('Asia/Singapore')
 #     date=datetime.now(sgp)-timedelta(1)
 #     scr.get_seat_data(date.strftime('%d %b %Y'))
 
-@sched.scheduled_job('cron',hour=8,minute=1, timezone='Asia/Singapore')
+@sched.scheduled_job('cron',hour=22,minute=11, timezone='Asia/Singapore')
 def movie_data():
     scr.get_movie_data()    
 
