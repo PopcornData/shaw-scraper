@@ -6,7 +6,7 @@ A web scraper built to scrape movie and seat buying data from [Shaw Theatres](ht
 ## Built With
 - [Selenium](https://www.selenium.dev/) 
 - [BeautifulSoup](https://pypi.org/project/beautifulsoup4/)
-- [Pandas](https://pandas.pydata.org/)
+- [Requests](https://requests.readthedocs.io/en/master/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 &nbsp;
 
