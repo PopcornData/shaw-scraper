@@ -37,8 +37,9 @@ heroku create <project-name>
 ```
 3. Add the Buildpacks necessary for Selenium ChromeDriver
 ```
-heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-chromedriver
-heroku buildpacks:add --index 2 https://github.com/heroku/heroku-buildpack-google-chrome
+heroku buildpacks:add index 1 https://github.com/heroku/heroku-buildpack-python.git
+heroku buildpacks:add --index 2 https://github.com/heroku/heroku-buildpack-chromedriver
+heroku buildpacks:add --index 3 https://github.com/heroku/heroku-buildpack-google-chrome
 ```
 4. Add the PATH variable to the Heroku configuration
 ```
@@ -49,6 +50,10 @@ heroku config:set MONGODB_URL = <your_MongoDB_connection_string>
 5. Deploy to Heroku(Make sure that you navigate to the cloned folder)
 ```
 git push heroku master
+```
+6. Run the following command to start the scraper
+```
+heroku ps:scale clock=1
 ```
 
 
