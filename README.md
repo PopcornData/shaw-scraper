@@ -1,11 +1,20 @@
 # Shaw Scraper
-A web scraper built to scrape movie and seat buying data from [Shaw Theatres](https://www.shaw.sg/)' website to understand movie-goers' behaviouristic patterns.  
+A web scraper built to scrape movie and seat buying data from [Shaw Theatres](https://www.shaw.sg/)' website to understand movie-goers' behaviouristic patterns. The data was used to build intersting visualisations which can be found on the [PopcornData website](https://popcorn-data.herokuapp.com/). More details on how we obtained the data and cleaned it can be found in this [Medium article](https://towardsdatascience.com/popcorn-data-analysing-cinema-seating-patterns-part-1-a0b2a5c2c19a).
+
+## Data Collected 
+#### Raw Data  
+The complete raw data collected can be found [here](https://drive.google.com/file/d/1K7Vv88SnmWarf6rOre2ijA-Qq7Dv2sNp/view).  
+
+#### Cleaned Data  
+The processed data can be found [here](https://docs.google.com/spreadsheets/d/1pLNbwfnrmfpyA7sxtRyB1P6iHuSFyUPEerwW7f3fEWU/edit?usp=sharing).
+
 
 ## Built With
 - [Selenium](https://www.selenium.dev/) 
 - [BeautifulSoup](https://pypi.org/project/beautifulsoup4/)
 - [Requests](https://requests.readthedocs.io/en/master/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
 
 
 ## Getting Started
