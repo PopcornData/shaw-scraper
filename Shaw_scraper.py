@@ -24,8 +24,8 @@ import pymongo
 import os
 
 # Code for using Mlab Mongodb
-#MONGODB_URI=os.environ.get("MONGODB_URI")
-# client = pymongo.MongoClient(MONGODB_URI,
+#MONGODB_URL=os.environ.get("MONGODB_URL")
+# client = pymongo.MongoClient(MONGODB_URL,
 #                      connectTimeoutMS=30000,
 #                      socketTimeoutMS=None,
 #                      socketKeepAlive=True,
@@ -35,8 +35,8 @@ import os
 # mycol = db["movie_data"]
 
 #Code for using Atlas Mongodb
-MONGODB_URI=os.environ.get("MONGODB_URI")
-client = pymongo.MongoClient(MONGODB_URI)
+MONGODB_URL=os.environ.get("MONGODB_URL")
+client = pymongo.MongoClient(MONGODB_URL)
 db = client.get_database('shaw_data')
 mycol = db["movie_data"]
 
