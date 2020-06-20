@@ -1,6 +1,5 @@
 # Shaw Scraper
 
-## About
 A web scraper built to scrape movie and seat buying data from [Shaw Theatres](https://www.shaw.sg/)' website to understand movie-goers' behaviouristic patterns. The data was used to build intersting visualisations which can be found on the [PopcornData website](https://popcorn-data.herokuapp.com/). More details on how we obtained the data and cleaned it can be found in this [Medium article](https://towardsdatascience.com/popcorn-data-analysing-cinema-seating-patterns-part-1-a0b2a5c2c19a).
 
 ## Data Collected 
@@ -96,7 +95,7 @@ The scraper has 2 functions which run separately:
      "session_code":"P00000000000000000200104"
    }
    ```
-   2. **get_movie_data()** - This function scrapes the seat details including which seats where bought and the time at which seats where bought for movie sessions. It scrapes data from the previous day so that all the seat data (ticket sales) are updated. It should be run only after running the get_movie_data() function as it updates the JSON in the DB by adding the seat data to it. The updated data has the following format:
+   2. **get_seat_data()** - This function scrapes the seat details including which seats where bought and the time at which seats where bought for movie sessions. It scrapes data from the previous day so that all the seat data (ticket sales) are updated. It should be run only after running the get_movie_data() function as it updates the JSON in the DB by adding the seat data to it. The updated data has the following format:
    ```
    {
        "theatre":"Nex",
