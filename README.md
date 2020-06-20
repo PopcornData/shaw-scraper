@@ -1,6 +1,6 @@
 # Shaw Scraper
 
-A web scraper built to scrape movie and seat buying data from [Shaw Theatres](https://www.shaw.sg/)' website to understand movie-goers' behaviouristic patterns. The data was used to build intersting visualisations which can be found on the [PopcornData website](https://popcorn-data.herokuapp.com/). More details on how we obtained the data and cleaned it can be found in this [Medium article](https://towardsdatascience.com/popcorn-data-analysing-cinema-seating-patterns-part-1-a0b2a5c2c19a).
+A web scraper built to scrape movie and seat buying data from [Shaw Theatres](https://www.shaw.sg/)' website to understand movie-goers' behaviouristic patterns. The data was used to build interesting visualisations which can be found on the [PopcornData website](https://popcorn-data.herokuapp.com/). More details on how we obtained the data and cleaned it can be found in this [Medium article](https://towardsdatascience.com/popcorn-data-analysing-cinema-seating-patterns-part-1-a0b2a5c2c19a).
 
 ## Data Collected 
 #### Raw Data  
@@ -123,7 +123,7 @@ The scraper has 2 functions which run separately:
         ]
   }
    ```
-A full sample updated document in the database can be viewed [here](https://gist.github.com/noelmathewisaac/31a9d20a674f6dd8524ed89d65183279)
+A full sample updated document in the database can be viewed [here](https://gist.github.com/noelmathewisaac/31a9d20a674f6dd8524ed89d65183279).
    
 **The functions are scheduled to run daily at the times specified in clock.py. The timings and frequencies of the scraper can be changed by editing the clock.py file.**
 
