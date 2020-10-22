@@ -102,7 +102,7 @@ to download and install the Heroku CLI
 The scraper has 2 functions which run separately:
 1. **get_movie_data()** - This function scrapes the movie details from all the theatres for the given day and stores the JSON data in the DB. The data has the folowing format:
 
-  ```json
+  ```
   {
    "theatre":"Nex",
    "hall":"nex Hall 5",
@@ -116,7 +116,7 @@ The scraper has 2 functions which run separately:
 2. **get_seat_data()** - This function scrapes the seat details including which seats where bought and the time at which seats where bought for movie sessions. It scrapes data from the previous day so that all the seat data (ticket sales) are updated. It should be run only after running the get_movie_data() function as it updates the JSON in the DB by adding the seat data to it. The updated data has the following format:
 
 
-  ```json
+  ```
    {
        "theatre":"Nex",
        "hall":"nex Hall 5",
