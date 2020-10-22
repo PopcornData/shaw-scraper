@@ -43,29 +43,38 @@ to download and install the Heroku CLI
 
 1. Clone the repo and navigate to the correct folder
 
+
 ```
 git clone https://github.com/PopcornData/shaw-scraper.git
 ```
 
+
 2. Open your Heroku CLI and login to Heroku
+
 
 ```
 heroku login
 ```
 
+
 3. Create a new project on Heroku
+
 
 ```
 heroku create <project-name>
 ```
 
+
 4. Add the remote
+
 
 ```
 heroku git:remote -a <project-name>
 ```
 
+
 5. Add the Buildpacks necessary for Selenium ChromeDriver
+
 
 ```
 heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-python.git
@@ -75,7 +84,9 @@ heroku buildpacks:add --index 2 https://github.com/heroku/heroku-buildpack-chrom
 heroku buildpacks:add --index 3 https://github.com/heroku/heroku-buildpack-google-chrome
 ```
 
+
 6. Add the PATH variable to the Heroku configuration
+
 
 ```
 heroku config:set GOOGLE_CHROME_BIN=/app/.apt/usr/bin/google_chrome
@@ -85,22 +96,28 @@ heroku config:set CHROMEDRIVER_PATH=/app/.chromedriver/bin/chromedriver
 heroku config:set MONGODB_URL=<your-MongoDB-connection-string>
 ```
 
+
 7. Deploy to Heroku (Make sure that you navigate to the cloned folder before deploying)
+
 
 ```
 git push heroku master
 ```
 
+
 8. Run the following command to start the scraper
+
 
 ```
 heroku ps:scale clock=1
 ```
 
+
 ## Usage
 The scraper has 2 functions which run separately:
 1. **get_movie_data()** - This function scrapes the movie details from all the theatres for the given day and stores the JSON data in the DB. The data has the folowing format:
-   
+
+
 ```
 {
  "theatre":"Nex",
@@ -111,10 +128,12 @@ The scraper has 2 functions which run separately:
  "session_code":"P00000000000000000200104"
 }
 ``` 
+
    
 2. **get_seat_data()** - This function scrapes the seat details including which seats where bought and the time at which seats where bought for movie sessions. It scrapes data from the previous day so that all the seat data (ticket sales) are updated. It should be run only after running the get_movie_data() function as it updates the JSON in the DB by adding the seat data to it. The updated data has the following format:
-   
- ```
+
+
+```
  {
      "theatre":"Nex",
      "hall":"nex Hall 5",
@@ -141,6 +160,7 @@ The scraper has 2 functions which run separately:
       ]
  }
  ```
+ 
     
 A full sample updated document in the database can be viewed [here](https://gist.github.com/noelmathewisaac/31a9d20a674f6dd8524ed89d65183279).
    
