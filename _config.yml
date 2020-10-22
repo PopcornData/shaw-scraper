@@ -1,8 +1,5 @@
 plugins:
   - jekyll-relative-links
-markdown: redcarpet
-redcarpet:
-  extensions: ["tables", "fenced_code_blocks"]
 relative_links:
   enabled: true
   collections: true
